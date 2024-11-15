@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: demo-first-service
+  data:
+    redis:
+      host: localhost
+      port: 6380
+server:
+  port: 8881
+  servlet:
+    context-path: /first

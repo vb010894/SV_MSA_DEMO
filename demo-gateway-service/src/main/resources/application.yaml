@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: demo-gateway-service
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          # http://localhost:8888/first/message -> http://localhost:8881/first/message
+          - id: first-service
+            uri: http://localhost:8881
+            predicates:
+              - Path=/first/**
+          - id: second-service
+            uri: http://localhost:8882
+            predicates:
+              - Path=/second/**
+server:
+  port: 8888
