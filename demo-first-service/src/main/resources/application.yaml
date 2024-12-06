@@ -5,7 +5,33 @@ spring:
     redis:
       host: localhost
       port: 6380
+  mail:
+    host: smtp.mail.ru
+    username: Почта
+    password: Пароль приложений
+    port: 465
+    properties:
+        mail:
+          smtp:
+            auth: true
+            starttls: true
+
 server:
   port: 8881
   servlet:
     context-path: /first
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+
